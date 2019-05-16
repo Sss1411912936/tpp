@@ -14,8 +14,8 @@ from Viewer.authentication import ViewerUserAuthentication
 class ViewerOrdersAPIView(ListCreateAPIView):
     queryset = ViewerOrder.objects.all()
     serializer_class = ViewerOrderSerializer
-    authentication_classes = (ViewerUserAuthentication,)
-    permission_classes = (ViewerUserPermission, )
+    authentication_classes = (ViewerUserAuthentication,)#登录认证
+    permission_classes = (ViewerUserPermission, )#权限认证
 
     # post创建中有一部分是只读的，所以要自己实现
     # 校验只读参数v_user，v_paidang

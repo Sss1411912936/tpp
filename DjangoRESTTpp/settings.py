@@ -86,7 +86,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'balalanengliang',
         'PORT': 3306,
-        'HOST': '127.0.0.1',
+        'HOST': '47.94.238.129',
     }
 }
 
@@ -148,10 +148,11 @@ ADMIN_USERS = ('Rock', 'Admin', 'Root')
 
 CACHES = {
     "default": {
-        "BACKEND": "redis_cache.RedisCache",
-        "LOCATION": "127.0.0.1:6379 ",
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://47.94.238.129:6379",
         "OPTIONS": {
-            "CLIENT_CLASS ": " django_redis.client.DefaultClient ",
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "CONNECTION_POOL_KWARGS": {"max_connections": 100}
         }
     }
 }
